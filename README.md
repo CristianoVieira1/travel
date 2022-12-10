@@ -23,10 +23,10 @@ Projeto em desenvolvimento...
 Travel será um App de pontos turísticos com integração dos usuários, assim os mesmos poderão curtir seus lugares favoritos, assim como comentar e postar suas melhores fotos.
 
 <h1 align="center">
-  <img alt="Logo" src="./src/assets/screen/screen.png" width="100px">
+  <img alt="Logo" src="./src/assets/screen/screen.png" width="150px">
 </h1>
 
-## 🚀 Technologies
+## 🚀 Tecnologias
 
 Tecnologias que usei para desenvolver este cliente móvel
 
@@ -43,7 +43,7 @@ Tecnologias que usei para desenvolver este cliente móvel
 - [Prettier](https://prettier.io/)
 - [EditorConfig](https://editorconfig.org/)
 
-## 💻 Getting started
+## 💻 Começando
 
 ### Requirements
 
