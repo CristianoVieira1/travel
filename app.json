@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Travel",
+    "slug": "Travel",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
