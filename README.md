@@ -23,7 +23,7 @@ Projeto em desenvolvimento...
 Travel será um App de pontos turísticos com integração dos usuários, assim os mesmos poderão curtir seus lugares favoritos, assim como comentar e postar suas melhores fotos.
 
 <h1 align="center">
-  <img alt="Logo" src="./src/assets/screen/screen.png" width="100px">
+  <img alt="Logo" src="./src/assets/screen/screen.png" width="200px">
 </h1>
 
 ## 🚀 Technologies
