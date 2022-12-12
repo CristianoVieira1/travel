@@ -34,6 +34,13 @@ export default {
     lightGray: "#9CA3AF",
     darkGray: "#1F2937",
     opacityBlack: "#575F69",
+    buttonAccept: "#FF8200",
+    buttonDisable: "#F4F4F7",
+    smokeWhite: "#F4F4F7",
+    drawerIcons: "#919EAB",
+    buttonAux: "#0066A5",
+    buttonLink: "#E6ECF3",
+    lightPrimary: "#E6ECF3",
   },
   shadow: {
     shadowOpacity: 0.5,

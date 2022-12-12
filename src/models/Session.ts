@@ -5,15 +5,12 @@ import { Session as SessionSchema } from "../types/Session";
 
 export class Session {
   async get(): Promise<any | null> {
-    const storage = await AsyncStorage.getItem("@crediare-bank-session");
+    const storage = await AsyncStorage.getItem("@travel-session");
     return storage ? JSON.parse(storage) : null;
   }
 
   set(params: any): Promise<void> {
-    return AsyncStorage.setItem(
-      "@crediare-bank-session",
-      JSON.stringify(params)
-    );
+    return AsyncStorage.setItem("@travel-session", JSON.stringify(params));
   }
 
   clearOldSession() {

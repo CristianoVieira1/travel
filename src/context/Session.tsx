@@ -42,15 +42,9 @@ export const UserSessionProvider = ({ children }: WithChildren) => {
   ): Promise<void> => {
     const { data } = await ConfirmAccount(email, password);
     const sessionSchema = await new Session().mountSessionSchema(data);
-    const keepingSelected = "Mês atual";
-    const isCalendarVisible = false;
-    const isSuperFilterVisible = false;
     setSession((prevSession) => ({
       ...prevSession,
       ...sessionSchema,
-      keepingSelected,
-      isCalendarVisible,
-      isSuperFilterVisible,
     }));
   };
 

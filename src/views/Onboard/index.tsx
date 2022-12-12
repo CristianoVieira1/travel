@@ -1,7 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-
+import * as Animatable from "react-native-animatable";
+import Button from "../../components/Button";
 import Slider from "./components/Slider";
 import Slide from "./components/Slider/Slide";
+import * as S from "./styles";
 
 const slides = [
   {
@@ -44,19 +47,50 @@ const slides = [
 export const assets = slides.map(({ picture }) => picture);
 
 const Onboard = () => {
+  const navigation = useNavigation();
   const [index, setIndex] = useState(0);
   const prev = slides[index - 1];
   const next = slides[index + 1];
+
   return (
-    <Slider
-      key={index}
-      index={index}
-      setIndex={setIndex}
-      prev={prev && <Slide slide={prev} />}
-      next={next && <Slide slide={next} />}
-    >
-      <Slide slide={slides[index]!} />
-    </Slider>
+    <>
+      <Slider
+        key={index}
+        index={index}
+        setIndex={setIndex}
+        prev={prev && <Slide slide={prev} />}
+        next={next && <Slide slide={next} />}
+      >
+        <Slide slide={slides[index]!} />
+        {index === slides.length - 1 ? (
+          <S.Container>
+            <Animatable.View
+              animation={"bounceInUp"}
+              useNativeDriver
+              duration={3000}
+            >
+              <S.Content>
+                <Animatable.View
+                  animation={"pulse"}
+                  useNativeDriver
+                  iterationCount={"infinite"}
+                >
+                  <Button
+                    title="Começar"
+                    type="link"
+                    size="medium"
+                    icon="arrowright"
+                    onPress={() => navigation.navigate("Login")}
+                  />
+                </Animatable.View>
+              </S.Content>
+            </Animatable.View>
+          </S.Container>
+        ) : (
+          <></>
+        )}
+      </Slider>
+    </>
   );
 };
 
