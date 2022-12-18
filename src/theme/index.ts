@@ -41,6 +41,7 @@ export default {
     buttonAux: "#0066A5",
     buttonLink: "#E6ECF3",
     lightPrimary: "#E6ECF3",
+    primary: "#f4338f",
   },
   shadow: {
     shadowOpacity: 0.5,

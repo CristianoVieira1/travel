@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import {
   heightPercentageToDP,
   widthPercentageToDP,
-} from "../../../../utils/DeviceResolution";
+} from "../../../../../utils/DeviceResolution";
 
 export const Container = styled.View`
   padding: 75px;

@@ -3,7 +3,12 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import { Dimensions, ImageBackground, StyleSheet } from "react-native";
+import {
+  Dimensions,
+  ImageBackground,
+  Platform,
+  StyleSheet,
+} from "react-native";
 import * as Animatable from "react-native-animatable";
 import Loading from "../../assets/animations/loading.json";
 import Splash from "../../assets/animations/splash.json";
@@ -22,8 +27,12 @@ export const SplashScreen = () => {
     setTimeout(() => {
       setIsVisibled(true);
       setTimeout(() => {
-        navigation.navigate("Onboard");
-      }, 4000);
+        if (Platform.OS === "ios") {
+          navigation.navigate("OnboardIos");
+          return;
+        }
+        navigation.navigate("OnboardAndroid");
+      }, 4600);
     }, 1700);
   }, []);
 
