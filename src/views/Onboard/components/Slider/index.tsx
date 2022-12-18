@@ -1,6 +1,9 @@
 import React, { ReactElement, useEffect } from "react";
 import { StyleSheet } from "react-native";
-import { PanGestureHandler } from "react-native-gesture-handler";
+import {
+  PanGestureHandler,
+  GestureHandlerRootView,
+} from "react-native-gesture-handler";
 import Animated, {
   runOnJS,
   useAnimatedGestureHandler,
@@ -118,39 +121,45 @@ const Slider = ({
   }, [index, left, right]);
 
   return (
-    <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <Animated.View style={StyleSheet.absoluteFill}>
-        {current}
-        {prev && (
-          <Animated.View style={[StyleSheet.absoluteFill, leftStyle]}>
-            <Wave
-              position={left}
-              side={Side.LEFT}
-              isTransitioning={isTransitioningLeft}
-            >
-              {prev}
-            </Wave>
-            <Button position={left} side={Side.LEFT} activeSide={activeSide} />
-          </Animated.View>
-        )}
-        {next && (
-          <Animated.View style={StyleSheet.absoluteFill}>
-            <Wave
-              position={right}
-              side={Side.RIGHT}
-              isTransitioning={isTransitioningRight}
-            >
-              {next}
-            </Wave>
-            <Button
-              position={right}
-              side={Side.RIGHT}
-              activeSide={activeSide}
-            />
-          </Animated.View>
-        )}
-      </Animated.View>
-    </PanGestureHandler>
+    <GestureHandlerRootView style={StyleSheet.absoluteFill}>
+      <PanGestureHandler onGestureEvent={onGestureEvent}>
+        <Animated.View style={StyleSheet.absoluteFill}>
+          {current}
+          {prev && (
+            <Animated.View style={[StyleSheet.absoluteFill, leftStyle]}>
+              <Wave
+                position={left}
+                side={Side.LEFT}
+                isTransitioning={isTransitioningLeft}
+              >
+                {prev}
+              </Wave>
+              <Button
+                position={left}
+                side={Side.LEFT}
+                activeSide={activeSide}
+              />
+            </Animated.View>
+          )}
+          {next && (
+            <Animated.View style={StyleSheet.absoluteFill}>
+              <Wave
+                position={right}
+                side={Side.RIGHT}
+                isTransitioning={isTransitioningRight}
+              >
+                {next}
+              </Wave>
+              <Button
+                position={right}
+                side={Side.RIGHT}
+                activeSide={activeSide}
+              />
+            </Animated.View>
+          )}
+        </Animated.View>
+      </PanGestureHandler>
+    </GestureHandlerRootView>
   );
 };
 

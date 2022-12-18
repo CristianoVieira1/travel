@@ -8348,12 +8348,6 @@ type-is@~1.6.17:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
-types/@react-native-async-storage/async-storage:
-  version "1.17.11"
-  resolved "https://codeload.github.com/react-native-async-storage/async-storage/tar.gz/e2cb42899c4d4ddeb0f880407764d5499d2f11bf"
-  dependencies:
-    merge-options "^3.0.4"
-
 typescript@^4.9.3:
   version "4.9.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.3.tgz#3aea307c1746b8c384435d8ac36b8a2e580d85db"
