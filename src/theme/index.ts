@@ -17,7 +17,7 @@ export default {
     bold: " PublicSans_700Bold_Italic",
     sizes: {
       xxsmall: "10px",
-      xsmall: "12px",
+      xsmall: "10px",
       small: "14px",
       medium: "16px",
       large: "24px",
@@ -41,6 +41,9 @@ export default {
     buttonAux: "#0066A5",
     buttonLink: "#E6ECF3",
     lightPrimary: "#E6ECF3",
+    lightBlue: "#e3ebf3",
+    primary: "#560bb8",
+    placeholderTextColor: "#A2A9B4",
   },
   shadow: {
     shadowOpacity: 0.5,

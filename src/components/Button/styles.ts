@@ -16,8 +16,6 @@ interface ButtonProps {
 
 function ButtonColor(type: TypeButton) {
   switch (type) {
-    case "accept":
-      return theme.colors.buttonAccept;
     case "disable":
       return theme.colors.smokeWhite;
     case "cancel":
@@ -52,6 +50,8 @@ function ButtonTitleColor(type: TypeButton) {
 
 function sizeButton(size: string) {
   switch (size) {
+    case "xsmall":
+      return "10";
     case "small":
       return "30";
     case "medium":
@@ -62,6 +62,11 @@ function sizeButton(size: string) {
       return "50";
   }
 }
+
+export const Image = styled.Image<ButtonProps>`
+  ${({ type }) =>
+    type !== "accept" ? { display: "none" } : { display: "flex" }};
+`;
 
 export const Container = styled.TouchableOpacity<ButtonProps>`
   width: ${({ size }) => (size ? sizeButton(size) : 100)}%;
@@ -75,13 +80,22 @@ export const Container = styled.TouchableOpacity<ButtonProps>`
       borderWidth: 1,
       borderColor: theme.colors.lightGray,
     }};
+
+  ${({ type }) =>
+    type === "accept" && {
+      background: "transparent",
+    }};
   margin-bottom: 10px;
 `;
 
 export const TitleButton = styled.Text<ButtonProps>`
-  font-size: ${({ theme }) => theme.fonts.sizes.large};
-  font-family: ${({ theme }) => theme.fonts.bold};
+  font-size: ${({ theme }) => theme.fonts.sizes.medium};
+  font-family: ${({ theme }) => theme.fonts.medium};
   color: ${({ type }) => ButtonTitleColor(type)};
+  ${({ type }) =>
+    type === "accept" && {
+      position: "absolute",
+    }};
 `;
 
 export const Content = styled.View`

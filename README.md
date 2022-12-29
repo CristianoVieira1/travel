@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Logo" src="https://github.com/CristianoVieira1/travel/blob/develop/src/assets/icons/logo.svg" width="200px">
+  <img alt="Logo" src="./src/assets/icons/logo/svg" width="200px">
 </h1>
 
 <h3 align="center">

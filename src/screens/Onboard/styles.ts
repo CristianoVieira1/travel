@@ -7,4 +7,5 @@ export const Container = styled.View`
 export const Content = styled.View`
   align-items: center;
   justify-content: center;
+  bottom: 20px;
 `;

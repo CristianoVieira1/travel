@@ -80,7 +80,7 @@ const Onboard = () => {
                     type="link"
                     size="medium"
                     icon="arrowright"
-                    onPress={() => navigation.navigate("Login")}
+                    onPress={() => navigation.navigate("InitialAccess")}
                   />
                 </Animatable.View>
               </S.Content>
