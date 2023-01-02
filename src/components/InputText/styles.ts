@@ -70,7 +70,7 @@ interface InputProps {
 export const Input = styled(TextInput)<InputProps>`
   font-family: ${({ theme }) => theme.fonts.medium};
   font-weight: 700;
-  width: ${(props) => (!!props.hasSecureIndicator ? "90%" : "100%")};
+  width: ${(props) => (!!props.hasSecureIndicator ? "94%" : "100%")};
   color: ${({ disabled, theme, colorText }) =>
     disabled ? theme.colors.darkGray : colorText};
   font-weight: 700;

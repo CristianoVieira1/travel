@@ -1,6 +1,9 @@
 export interface Session {
-  userId: number;
-  userName: string;
-  admin: boolean;
-  accessToken: string;
+  idToken: string;
+  id: string;
+  familyName?: string;
+  email?: string;
+  givenName?: string;
+  name?: string;
+  photo?: string;
 }

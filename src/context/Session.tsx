@@ -1,3 +1,4 @@
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import React, {
   createContext,
   Dispatch,
@@ -19,6 +20,7 @@ interface Schema {
   setSession: Dispatch<SetStateAction<SessionSchema>>;
   updateAccessToken: (accessToken: string) => Promise<void>;
   handleAuthentication: (email: string, password: string) => Promise<void>;
+  handleSigInGoogle: () => Promise<void>;
 }
 
 export const SessionContext = createContext({} as Schema);
@@ -48,6 +50,15 @@ export const UserSessionProvider = ({ children }: WithChildren) => {
     }));
   };
 
+  const handleSigInGoogle = async (): Promise<void> => {
+    const { user } = await GoogleSignin.signIn();
+    const sessionSchema = await new Session().mountSessionSchema(user as any);
+    setSession((prevSession) => ({
+      ...prevSession,
+      ...sessionSchema,
+    }));
+  };
+
   const updateAccessToken = async (accessToken: string): Promise<void> => {
     await new Auth().setAccessToken(accessToken);
   };
@@ -60,6 +71,7 @@ export const UserSessionProvider = ({ children }: WithChildren) => {
         removeSession,
         fetchLastSession,
         updateAccessToken,
+        handleSigInGoogle,
         handleAuthentication,
       }}
     >

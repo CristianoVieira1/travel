@@ -15,10 +15,12 @@ import THEME from "./theme";
 
 function App() {
   const { session, removeSession } = useSession();
-  const isAuthenticated = !!session?.userId;
+  const isAuthenticated = !!session?.id;
 
   useEffect(() => {
     removeSession();
+    console.log("chegou to app.tsx");
+    console.log("token", session.idToken);
   }, []);
 
   const [fontsLoaded] = useFonts({

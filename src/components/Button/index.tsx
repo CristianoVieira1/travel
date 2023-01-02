@@ -7,9 +7,9 @@ import theme from "../../theme";
 import * as S from "./styles";
 
 interface IButtonProps extends TouchableOpacityProps {
-  title: string;
+  title: string | undefined;
   loading?: boolean;
-  type: S.TypeButton;
+  type: S.TypeButton ;
   size?: S.SizeButton;
   fontSize?: S.SizeButton;
   icon?: string;

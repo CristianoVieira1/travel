@@ -35,7 +35,7 @@ export interface Props extends TextInputProps {
   colorText?: string
   inputLength?: number
   messageError?: string
-  validation?: string
+  validation?: string | boolean
   clearValidation?: () => void
   displaySecureIndicator?: boolean
   onChangeText: (text: string) => void
