@@ -9,7 +9,7 @@ import React, {
 
 import { Auth } from "../models/Auth";
 import { Session } from "../models/Session";
-import { ConfirmAccount } from "../services/network/auth";
+import LocalStorage from "../persistence/LocalStorage";
 import { WithChildren } from "../types";
 import { Session as SessionSchema } from "../types/Session";
 
@@ -19,7 +19,6 @@ interface Schema {
   fetchLastSession: () => Promise<void>;
   setSession: Dispatch<SetStateAction<SessionSchema>>;
   updateAccessToken: (accessToken: string) => Promise<void>;
-  handleAuthentication: (email: string, password: string) => Promise<void>;
   handleSigInGoogle: () => Promise<void>;
 }
 
@@ -38,21 +37,11 @@ export const UserSessionProvider = ({ children }: WithChildren) => {
     setSession({} as SessionSchema);
   };
 
-  const handleAuthentication = async (
-    email: string,
-    password: string
-  ): Promise<void> => {
-    const { data } = await ConfirmAccount(email, password);
-    const sessionSchema = await new Session().mountSessionSchema(data);
-    setSession((prevSession) => ({
-      ...prevSession,
-      ...sessionSchema,
-    }));
-  };
-
+  /////google
   const handleSigInGoogle = async (): Promise<void> => {
     const { user } = await GoogleSignin.signIn();
-    const sessionSchema = await new Session().mountSessionSchema(user as any);
+    const sessionSchema = await new Session().mountSessionSchema(user);
+    LocalStorage.setUserId(user.id);
     setSession((prevSession) => ({
       ...prevSession,
       ...sessionSchema,
@@ -72,7 +61,6 @@ export const UserSessionProvider = ({ children }: WithChildren) => {
         fetchLastSession,
         updateAccessToken,
         handleSigInGoogle,
-        handleAuthentication,
       }}
     >
       {children}

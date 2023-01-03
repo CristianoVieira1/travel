@@ -1,5 +1,4 @@
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
-import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { useSession } from "../../../context/Session";
 import { CLI_ID_GOOGLE } from "../../../helpers";
@@ -17,7 +16,6 @@ export interface IUser {
 const useLoginPageViewModel = () => {
   const [loading, setLoading] = useState(false);
   const [userDetails, setUserDetails] = useState<IUser>({} as IUser);
-  const navigation = useNavigation();
   const { handleSigInGoogle } = useSession();
 
   useEffect(() => {
@@ -26,11 +24,10 @@ const useLoginPageViewModel = () => {
     });
   }, []);
 
-  const loginGoogle = async () => {
-    // setLoading(true);
-    handleSigInGoogle().then(() => {
-      // setLoading(false);
-    });
+  const loginGoogle = async (): Promise<void> => {
+    setLoading(true);
+    await handleSigInGoogle();
+    setLoading(false);
   };
 
   const viewModel: ILoginPageViewModel = {

@@ -14,7 +14,8 @@ export default {
   fonts: {
     regular: "PublicSans_400Regular",
     medium: "PublicSans_500Medium",
-    bold: " PublicSans_700Bold_Italic",
+    bold: "PublicSans_700Bold",
+    aliceMedium: "Alice_400Regular",
     sizes: {
       xxsmall: "10px",
       xsmall: "10px",
@@ -30,6 +31,7 @@ export default {
     white: "#FFFFFF",
     orange: "#FF8200",
     danger: "#DC2626",
+    red: "#FF543D",
     dangerText: "#FF0000",
     lightGray: "#9CA3AF",
     darkGray: "#1F2937",
@@ -43,6 +45,7 @@ export default {
     lightPrimary: "#E6ECF3",
     lightBlue: "#e3ebf3",
     primary: "#560bb8",
+    black: "#000000",
     placeholderTextColor: "#A2A9B4",
   },
   shadow: {
@@ -58,8 +61,8 @@ export default {
     small: "14px",
     medium: "16px",
     large: "18px",
-    xlarge: "20px",
-    xxlarge: "24px",
-    xxxlarge: "32px",
+    xlarge: "24px",
+    xxlarge: "34px",
+    xxxlarge: "42px",
   },
 };

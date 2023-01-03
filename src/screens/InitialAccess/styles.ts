@@ -59,3 +59,16 @@ export const BackgroundImg = styled.View`
   margin: 0;
   padding: 0;
 `;
+
+export const Loader = styled.View`
+  z-index: 999999;
+  position: absolute;
+  background-color: ${({ theme }) => theme.colors.black};
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  padding: 0 13%;
+  padding-top: 120%;
+`;

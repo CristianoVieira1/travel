@@ -1,25 +1,54 @@
+import { MotiView } from "@motify/components";
 import React from "react";
-import { DotIndicator } from "react-native-indicators";
 import theme from "../../theme";
 import * as S from "./styles";
 
 interface ILoading {
-  loading: boolean;
-  children: React.ReactNode;
+  size: number;
 }
 
-export const Loading = ({ loading, children }: ILoading) => {
+export const Loading = ({ size }: ILoading) => {
   return (
     <>
-      {loading ? (
-        <>
-          <S.Container>
-            <DotIndicator size={10} color={theme.colors.orange} />
-          </S.Container>
-        </>
-      ) : (
-        children
-      )}
+      <>
+        <S.Container>
+          <S.Content>
+            {/* <S.Title>Aguarde...</S.Title> */}
+            <MotiView
+              from={{
+                width: size,
+                height: size,
+                borderRadius: size / 2,
+                borderWidth: 0,
+                shadowOpacity: 0.5,
+              }}
+              animate={{
+                width: size + 20,
+                height: size + 20,
+                borderRadius: (size + 20) / 2,
+                borderWidth: size / 10,
+                shadowOpacity: 1,
+              }}
+              transition={{
+                type: "timing",
+                duration: 1000,
+                loop: true,
+              }}
+              style={{
+                width: size,
+                height: size,
+                borderRadius: size / 2,
+                borderWidth: size / 10,
+                borderColor: theme.colors.white,
+                shadowColor: theme.colors.white,
+                // backgroundColor: theme.colors.white,
+                shadowOpacity: 1,
+                shadowRadius: 10,
+              }}
+            />
+          </S.Content>
+        </S.Container>
+      </>
     </>
   );
 };

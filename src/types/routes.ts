@@ -3,4 +3,14 @@ export type ParamList = {
   Onboard: undefined;
   InitialAccess: undefined;
   Logado: undefined;
+  Home: undefined;
+  HomeDetails:
+    | {
+        item?: {
+          id: string;
+          image: string;
+          state: string;
+        };
+      }
+    | undefined;
 };

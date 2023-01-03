@@ -1,15 +1,8 @@
 export interface AccountResponse {
-  idToken: string;
-  scopes: string[];
-  serverAuthCode: null;
-  user: User;
-}
-
-export interface User {
   email: string;
-  familyName: string;
-  givenName: string;
+  familyName: string | null;
+  givenName: string | null;
   id: string;
-  name: string;
-  photo: string;
+  name: string | null;
+  photo: string | null;
 }

@@ -25,7 +25,13 @@ export const InitialAccess = () => {
   return (
     <>
       {loading ? (
-        <Loading loading={loading} children />
+        <>
+          <S.Loader>
+            <Loading size={20} />
+            <Loading size={20} />
+            <Loading size={20} />
+          </S.Loader>
+        </>
       ) : (
         <ScreenView statusbarColor="light">
           <S.BackgroundImg>

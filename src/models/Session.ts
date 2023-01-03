@@ -18,15 +18,23 @@ export class Session {
   }
 
   async mountSessionSchema({
-    user: response,
+    id,
+    email,
+    familyName,
+    givenName,
+    name,
+    photo,
   }: AccountResponse): Promise<SessionSchema> {
     const schema = {
-      id: response.id,
-      email: response.email,
-      name: response.name,
+      id,
+      email,
+      familyName,
+      givenName,
+      name,
+      photo,
     };
 
-    await this.set({ name: schema.name });
+    await this.set({ id: schema.id });
     return schema;
   }
 }
