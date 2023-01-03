@@ -22,7 +22,7 @@ interface IProps {
 export const HomeDetails = (props: IProps) => {
   return (
     <ScreenView statusbarColor="dark">
-      <Header isIconMenu={true} isIconBack={false} />
+      <Header isIconMenu={false} isIconBack={true} />
       <S.Container>
         <S.Title>Aproveite o mundo</S.Title>
       </S.Container>

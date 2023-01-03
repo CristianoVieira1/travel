@@ -48,7 +48,7 @@ export const Card = styled.TouchableOpacity`
 export const CardTitle = styled.Text`
   position: absolute;
   top: 10px;
-  left: 5px;
+  left: 10px;
   font-size: ${({ theme }) => theme.fonts.sizes.xxlarge};
   font-family: ${({ theme }) => theme.fonts.aliceMedium};
   color: ${({ theme }) => theme.colors.white};

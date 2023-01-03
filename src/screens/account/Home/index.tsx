@@ -31,12 +31,11 @@ const Home = () => {
           keyExtractor={(item) => item.id}
           horizontal
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ paddingRight: ITEM_WIDTH }}
           snapToInterval={FULL_SIZE / 2}
           decelerationRate="fast"
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-            { useNativeDriver: false }
+            { useNativeDriver: true }
           )}
           renderItem={({ item, index }) => {
             const inputRange = [
@@ -56,14 +55,15 @@ const Home = () => {
             });
             return (
               <S.Card
-                onPress={() => () =>
+                onPress={() =>
                   navigation.navigate("HomeDetails", {
                     item: {
                       id: item.id,
                       image: item.image,
                       state: item.state,
                     },
-                  })}
+                  })
+                }
               >
                 <View
                   style={[
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     width: ITEM_WIDTH * 1.5,
     height: ITEM_HEIGHT,
-    margin: SPACING * 2,
+    marginTop: SPACING * 2,
   },
   location: {
     fontSize: 30,
