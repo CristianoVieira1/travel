@@ -7,7 +7,7 @@ import {
 
 import { Alice_400Regular } from "@expo-google-fonts/alice";
 import { NavigationContainer } from "@react-navigation/native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { RootSiblingParent } from "react-native-root-siblings";
 import { ThemeProvider } from "styled-components";
 import { UserSessionProvider, useSession } from "./context/Session";
@@ -16,14 +16,25 @@ import Routes, { navigationRef } from "./routes";
 import THEME from "./theme";
 
 function App() {
-  const { session, removeSession } = useSession();
-  const userId = LocalStorage.getUserId();
-  const isAuthenticated = userId ?? !!session?.id;
-  // const isAuthenticated = !!session?.id;
+  const { setSession, session } = useSession();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // useEffect(() => {
-  //   removeSession();
-  // }, []);
+  async function hasUserLogged() {
+    await LocalStorage.getUser().then((userLogged) => {
+      if (userLogged) {
+        setIsAuthenticated(true);
+        const response = { user: { ...userLogged } };
+        setSession((prevSession) => ({
+          ...prevSession,
+          ...response,
+        }));
+      }
+    });
+  }
+
+  useEffect(() => {
+    hasUserLogged();
+  }, [isAuthenticated]);
 
   const [fontsLoaded] = useFonts({
     PublicSans_400Regular,
@@ -36,7 +47,7 @@ function App() {
     return (
       <ThemeProvider theme={THEME}>
         <NavigationContainer ref={navigationRef}>
-          <Routes isAuthenticated={!!isAuthenticated} />
+          <Routes isAuthenticated={isAuthenticated || !!session?.user?.id} />
         </NavigationContainer>
       </ThemeProvider>
     );

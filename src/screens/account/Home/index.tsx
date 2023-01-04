@@ -1,7 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React, { useRef } from "react";
-import { Animated, StyleSheet, TouchableOpacity, View } from "react-native";
+import { Animated, StyleSheet, View } from "react-native";
 import Header from "../../../components/Header";
 import ScreenView from "../../../components/ScreenView";
 import { data } from "./data";
@@ -16,6 +16,7 @@ const Home = () => {
   return (
     <ScreenView statusbarColor="dark">
       <Header isIconMenu={true} isIconBack={false} />
+      {/* criar um componente scrool para o lado */}
       <S.Container>
         <S.Title>Aproveite o mundo</S.Title>
         <S.Content>
@@ -25,7 +26,7 @@ const Home = () => {
           <S.Description>Populares</S.Description>
         </S.Content>
       </S.Container>
-      <TouchableOpacity style={styles.itemContainer}>
+      <View style={styles.itemContainer}>
         <Animated.FlatList
           data={data}
           keyExtractor={(item) => item.id}
@@ -92,12 +93,10 @@ const Home = () => {
             );
           }}
         />
-      </TouchableOpacity>
+      </View>
     </ScreenView>
   );
 };
-
-export default Home;
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -116,3 +115,5 @@ const styles = StyleSheet.create({
     bottom: SPACING,
   },
 });
+
+export default Home;

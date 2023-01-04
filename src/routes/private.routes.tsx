@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
+import Home from "../screens/account/Home";
+import HomeDetails from "../screens/account/HomeDetails";
 import IconHome from "../assets/icons/home.svg";
-import HomeDetails from "../screens/account/Home/components/HomeDetails/HomeDetails";
-import Home from "../screens/account/Home/index";
 
 const BottomNav = createBottomTabNavigator();
 

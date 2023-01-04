@@ -27,8 +27,8 @@ const Header = ({ isIconBack = true, isIconMenu = false }: IProps) => {
 
         {isIconMenu && <Feather name="menu" size={24} color="black" />}
         <S.UserImage>
-          {session?.photo ? (
-            <S.Image source={{ uri: session.photo }} />
+          {session?.user?.photo ? (
+            <S.Image source={{ uri: session.user.photo }} />
           ) : (
             <Feather name="camera" size={24} color="white" />
           )}

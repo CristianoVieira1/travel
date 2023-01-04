@@ -1,4 +1,4 @@
-export interface AccountResponse {
+export interface User {
   email: string;
   familyName: string | null;
   givenName: string | null;

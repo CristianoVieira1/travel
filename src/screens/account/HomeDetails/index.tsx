@@ -1,7 +1,7 @@
 import { RouteProp } from "@react-navigation/native";
 import React from "react";
-import Header from "../../../../../components/Header";
-import ScreenView from "../../../../../components/ScreenView";
+import Header from "../../../components/Header";
+import ScreenView from "../../../components/ScreenView";
 import * as S from "./styles";
 
 interface IProps {
@@ -19,7 +19,7 @@ interface IProps {
   >;
 }
 
-export const HomeDetails = (props: IProps) => {
+const HomeDetails = (props: IProps) => {
   return (
     <ScreenView statusbarColor="dark">
       <Header isIconMenu={false} isIconBack={true} />

@@ -1,29 +1,29 @@
-import * as SecureStore from "expo-secure-store";
+import { User } from "src/types/Account";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const KEYS = {
-  KeyUSERID: "LocalStorage-USERIDKey",
-  KeyONBOARDn: "LocalStorage-ONBOARDONKey",
-};
+const userStorageKey = "@travel:user";
+const onBoardStorageKey = "@travel:onBoard";
 
 class LocalStorage {
-  static async getUserId(): Promise<any> {
-    return await SecureStore.getItemAsync(KEYS.KeyUSERID);
+  static async getUser(): Promise<any> {
+    const userStorage = await AsyncStorage.getItem(userStorageKey);
+    return userStorage ? JSON.parse(userStorage) : null;
   }
 
-  static async setUserId(id: string) {
-    return await SecureStore.setItemAsync(KEYS.KeyUSERID, id);
+  static async setUser(user: User) {
+    await AsyncStorage.setItem(userStorageKey, JSON.stringify(user));
   }
 
-  static async getOnboard(): Promise<any> {
-    return await SecureStore.getItemAsync(KEYS.KeyONBOARDn);
+  static async getOnboard(): Promise<string | null> {
+    return await AsyncStorage.getItem(onBoardStorageKey);
   }
 
   static async setOnboard(onboardToken: string) {
-    return await SecureStore.setItemAsync(KEYS.KeyONBOARDn, onboardToken);
+    return await AsyncStorage.setItem(onBoardStorageKey, onboardToken);
   }
 
-  static async clean(): Promise<any> {
-    return await SecureStore.deleteItemAsync(KEYS.KeyUSERID);
+  static async clean(): Promise<unknown> {
+    return await AsyncStorage.removeItem(userStorageKey);
   }
 }
 

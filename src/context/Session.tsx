@@ -41,7 +41,8 @@ export const UserSessionProvider = ({ children }: WithChildren) => {
   const handleSigInGoogle = async (): Promise<void> => {
     const { user } = await GoogleSignin.signIn();
     const sessionSchema = await new Session().mountSessionSchema(user);
-    LocalStorage.setUserId(user.id);
+
+    await LocalStorage.setUser(user);
     setSession((prevSession) => ({
       ...prevSession,
       ...sessionSchema,
